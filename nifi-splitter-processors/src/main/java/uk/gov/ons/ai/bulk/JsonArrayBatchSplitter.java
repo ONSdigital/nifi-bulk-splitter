@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.nifi.processors.standard;
+package uk.gov.ons.ai.bulk;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -245,7 +245,7 @@ public class JsonArrayBatchSplitter extends AbstractJsonPathProcessor {
             FlowFile split = processSession.create(original);
             for (Object aFragment : fragment) {
                 Map resultSeg = (Map) aFragment;
-                // Data is (should) be a ID, ADDRESS pair in a map.
+                // Data is (should be) a ID, ADDRESS pair in a map.
                 JSONObject obj = new JSONObject();
                 obj.put("ID", resultSeg.get("ID"));
                 obj.put("ADDRESS", resultSeg.get("ADDRESS"));
@@ -256,6 +256,7 @@ public class JsonArrayBatchSplitter extends AbstractJsonPathProcessor {
                     ss.append(",").append(resultSegment);
                 }
             }
+
             ss = new StringBuilder("[" + ss + "]");
             final String jsonArray = ss.toString();
 
