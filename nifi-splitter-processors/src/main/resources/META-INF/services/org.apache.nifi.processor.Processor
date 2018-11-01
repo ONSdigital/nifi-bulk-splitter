@@ -14,3 +14,4 @@
 # limitations under the License.
 
 uk.gov.ons.ai.bulk.JsonArrayBatchSplitter
+uk.gov.ons.ai.bulk.DeleteFromCache
