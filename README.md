@@ -1,7 +1,10 @@
 
 ## Description ##
 
-A custom NiFi  processor to split a JSON array into small chunks based on a configurable batch size.
+Two custom NiFi processors:
+
+1. Split a JSON array into small chunks based on a configurable batch size.
+2. Delete a cache entry from Redis. Should work with an NiFi cache implementation.
 
 This forms part of the NiFi bulk processing flow for the ONS Address Index API.
 
@@ -9,4 +12,3 @@ This forms part of the NiFi bulk processing flow for the ONS Address Index API.
 
 Uses NiFi version 1.7.1 (note that 1.8.0 has a bug re. connecting to Redis). 
 
-Extends the standard NiFi `AbstractJsonPathProcessor` class and therefore needs to be bundled with `nifi-standard-processors` and `nifi-standard-services-api-nar`.
