@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  
+  nifi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ons/nifi:v1
+    container_name: nifi
+    ports:
+      - 8080:8080
+      - 8443:8443
+      - 10000:10000
+
+  db:
+    build:
+      context: ./sql
+      dockerfile: Dockerfile
+    image: ons/sqlserver:v1
+    container_name: nifi-db
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: "yourStrong(!)Password"
+    ports:
+      - 1433:1433
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+  
