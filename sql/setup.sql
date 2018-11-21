@@ -9,15 +9,15 @@ GO
 IF NOT EXISTS
 (SELECT name
  FROM master.sys.server_principals
- WHERE name = 'bulk')
+ WHERE name = 'ai-bulk')
   BEGIN
-    CREATE LOGIN ['bulk'] WITH PASSWORD = N'yourStrong(!)Password', DEFAULT_DATABASE = addressindex
+    CREATE LOGIN [ai-bulk] WITH PASSWORD = N'yourStrong123Password', DEFAULT_DATABASE = addressindex
   END
 
 USE addressindex
 GO
 
-CREATE USER ['bulk'] FOR LOGIN ['bulk']
+CREATE USER [ai-bulk] FOR LOGIN [ai-bulk]
 
 -- ----------------------------
 -- Table structure for jobresult
@@ -37,7 +37,7 @@ GO
 ALTER TABLE [dbo].[jobresult] SET (LOCK_ESCALATION = TABLE)
 GO
 
-GRANT SELECT, INSERT, UPDATE ON [dbo].[jobresult] TO ['bulk']
+GRANT SELECT, INSERT, UPDATE ON [dbo].[jobresult] TO [ai-bulk]
 
 -- ----------------------------
 -- Indexes structure for table jobresult
