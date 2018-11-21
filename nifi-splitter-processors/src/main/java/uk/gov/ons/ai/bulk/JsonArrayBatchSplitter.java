@@ -247,8 +247,8 @@ public class JsonArrayBatchSplitter extends AbstractJsonPathProcessor {
                 Map resultSeg = (Map) aFragment;
                 // Data is (should be) a id, address pair in a map.
                 JSONObject obj = new JSONObject();
-                obj.put("id", resultSeg.get("id"));
-                obj.put("address", resultSeg.get("address"));
+                obj.put("id", resultSeg.get("id") == null ? resultSeg.get("ID") : resultSeg.get("id"));
+                obj.put("address", resultSeg.get("address") == null ? resultSeg.get("ADDRESS") : resultSeg.get("address"));
                 String resultSegment =obj.toJSONString();
                 if (ss.toString().equals("")) {
                     ss = new StringBuilder(resultSegment);
