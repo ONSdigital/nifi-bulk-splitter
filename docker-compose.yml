@@ -1,7 +1,5 @@
 version: '3'
-
 services:
-  
   nifi:
     build:
       context: .
@@ -12,7 +10,7 @@ services:
       - 8080:8080
       - 8443:8443
       - 10000:10000
-
+      - 5555:5555
   db:
     build:
       context: ./sql
@@ -24,10 +22,8 @@ services:
       SA_PASSWORD: "yourStrong(!)Password"
     ports:
       - 1433:1433
-
   redis:
     image: redis:alpine
     container_name: redis
     ports:
       - 6379:6379
-  
