@@ -245,10 +245,10 @@ public class JsonArrayBatchSplitter extends AbstractJsonPathProcessor {
             FlowFile split = processSession.create(original);
             for (Object aFragment : fragment) {
                 Map resultSeg = (Map) aFragment;
-                // Data is (should be) a ID, ADDRESS pair in a map.
+                // Data is (should be) a id, address pair in a map.
                 JSONObject obj = new JSONObject();
-                obj.put("ID", resultSeg.get("ID"));
-                obj.put("ADDRESS", resultSeg.get("ADDRESS"));
+                obj.put("id", resultSeg.get("id"));
+                obj.put("address", resultSeg.get("address"));
                 String resultSegment =obj.toJSONString();
                 if (ss.toString().equals("")) {
                     ss = new StringBuilder(resultSegment);
@@ -257,7 +257,7 @@ public class JsonArrayBatchSplitter extends AbstractJsonPathProcessor {
                 }
             }
 
-            ss = new StringBuilder("[" + ss + "]");
+            ss = new StringBuilder("{\"addresses\":[" + ss + "]}");
             final String jsonArray = ss.toString();
 
             split = processSession.write(split, (out) -> {
