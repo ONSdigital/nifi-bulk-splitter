@@ -14,5 +14,4 @@ EXPOSE 1433
 
 CMD  exec /bin/bash entrypoint.sh
 
-#CMD [ "/opt/mssql/bin/sqlservr" ]
 
