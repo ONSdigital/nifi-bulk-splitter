@@ -37,7 +37,7 @@ GO
 ALTER TABLE [dbo].[jobresult] SET (LOCK_ESCALATION = TABLE)
 GO
 
-GRANT SELECT, INSERT, UPDATE ON [dbo].[jobresult] TO [ai-bulk]
+GRANT SELECT, INSERT, UPDATE, DELETE ON [dbo].[jobresult] TO [ai-bulk]
 
 -- ----------------------------
 -- Indexes structure for table jobresult

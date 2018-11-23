@@ -10387,7 +10387,7 @@ So you can configure the 'retry' relationship to loop back to the process you wa
             </entry>
             <entry>
                 <key>Remote URL</key>
-                <value>http://host.docker.internal:3005</value>
+                <value>${URL}</value>
             </entry>
             <entry>
                 <key>SSL Context Service</key>
@@ -11351,7 +11351,7 @@ So you can configure the 'retry' relationship to loop back to the process you wa
             </entry>
             <entry>
                 <key>Remote URL</key>
-                <value>http://host.docker.internal:3005</value>
+                <value>${URL}</value>
             </entry>
             <entry>
                 <key>SSL Context Service</key>
